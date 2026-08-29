@@ -18,6 +18,7 @@
 #include "../src/blake2.h"
 #include "../src/blake2s.h"
 #include "../src/crc_32.h"
+#include "../src/crc_64_xz.h"
 #include "../src/cshake.h"
 #include "../src/fnv.h"
 #include "../src/has_160.h"

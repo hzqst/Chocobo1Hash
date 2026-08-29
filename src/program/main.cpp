@@ -16,6 +16,7 @@
 #include "../blake2.h"
 #include "../blake2s.h"
 #include "../crc_32.h"
+#include "../crc_64_xz.h"
 #include "../cshake.h"
 #include "../fnv.h"
 #include "../has_160.h"
@@ -56,7 +57,7 @@ enum class Hash : int
 {
 	Blake1_224, Blake1_256, Blake1_384, Blake1_512,
 	Blake2, Blake2s,
-	Crc_32,
+	Crc_32, Crc_64_Xz,
 	Cshake_128, Cshake_256,
 	Fnv32_1a, Fnv64_1a,
 	Has160,
@@ -112,7 +113,7 @@ void printUsage(const std::string &name)
 		"Available HASH:\n"
 		"  -blake1-224"		"\t -blake1-256"	"\t -blake1-384"	"\t -blake1-512\n"
 		"  -blake2"			"\t -blake2s\n"
-		"  -crc-32\n"
+		"  -crc-32"            "\t -crc-64-xz\n"
 		"  -cshake-128 <Digest length (bytes)> <Customization string>\n"
 		"  -cshake-256 <Digest length (bytes)> <Customization string>\n"
 		"  -fnv32_1a"		"\t -fnv64_1a\n"
@@ -139,7 +140,7 @@ Hash getHash(const std::string &hash)
 	static const std::string names[] = {
 		"-blake1-224", "-blake1-256", "-blake1-384", "-blake1-512",
 		"-blake2", "-blake2s",
-		"-crc-32",
+		"-crc-32", "-crc-64-xz",
 		"-cshake-128", "-cshake-256",
 		"-fnv32_1a", "-fnv64_1a",
 		"-has160",
@@ -272,6 +273,15 @@ bool runHash(const Hash hash, const int argc, const char *argv[])
 				return false;
 
 			readNPrint(Chocobo1::CRC_32(), argv[2]);
+			return true;
+		}
+
+		case Hash::Crc_64_Xz:
+		{
+			if (argc != 3)
+				return false;
+
+			readNPrint(Chocobo1::CRC_64_XZ(), argv[2]);
 			return true;
 		}
 

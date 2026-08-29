@@ -14,6 +14,7 @@ What is included in this library:
 | BLAKE1                  | 224, 256, 384, 512                       | https://131002.net/blake/                                                                 |
 | BLAKE2                  | BLAKE2b, BLAKE2s                         | https://blake2.net/                                                                       |
 | CRC-32                  |                                          | http://create.stephan-brumme.com/crc32/                                                   |
+| CRC-64                  | XZ                                       | https://reveng.sourceforge.io/crc-catalogue/17plus.htm#crc.cat.crc-64-xz                  |
 | Fowler–Noll–Vo (FNV)    | FNV32_0, FNV32_1, FNV32_1a               | http://www.isthe.com/chongo/tech/comp/fnv/index.html                                      |
 |                         | FNV64_0, FNV64_1, FNV64_1a               |                                                                                           |
 | HAS-160                 |                                          | https://www.tta.or.kr/eng/new/standardization/eng_ttastddesc.jsp?stdno=TTAS.KO-12.0011/R2 |
